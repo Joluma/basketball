@@ -28,37 +28,33 @@ class NbaScoresTabState extends State<NbaScoresTab> {
     super.initState();
     data = fetchJSONData(this.date);
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: FutureBuilder<List>(
-        future: data,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return snapshot.data.length == 0
+        child: FutureBuilder<List>(
+      future: data,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return snapshot.data.length == 0
               ? Center(
-                  child: Text('No games this day', style: TextStyle(fontSize: 24.0))
-                )
+                  child: Text('No games this day',
+                      style: TextStyle(fontSize: 24.0)))
               : ListView.builder(
-                itemCount: snapshot.data.length,
-                padding: EdgeInsets.all(16.0),
-                itemBuilder: (BuildContext context, int index) {
-                  return ScoreCard(snapshot.data[index]);
-                }
-            );
-          } else if (snapshot.hasError) {
-            return Center(
-                child: Text('${snapshot.error}', style: TextStyle(fontSize: 24.0))
-            );
-          }
-
-          // By default, show a loading spinner.
+                  itemCount: snapshot.data.length,
+                  padding: EdgeInsets.all(16.0),
+                  itemBuilder: (BuildContext context, int index) {
+                    return ScoreCard(snapshot.data[index]);
+                  });
+        } else if (snapshot.hasError) {
           return Center(
-              child: CircularProgressIndicator()
-          );
-        },
-      )
-    );
+              child:
+                  Text('${snapshot.error}', style: TextStyle(fontSize: 24.0)));
+        }
+
+        // By default, show a loading spinner.
+        return Center(child: CircularProgressIndicator());
+      },
+    ));
   }
 }

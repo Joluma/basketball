@@ -11,9 +11,7 @@ class ScoreCardDate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String gameTime = DateFormat.jm().format(DateTime.parse(date));
-    final gameStatus = status['short'] == 'FT'
-      ? 'Ended'
-      : gameTime.toString();
+    final gameStatus = status['short'] == 'FT' ? 'Ended' : gameTime.toString();
 
     return Text(
       gameStatus,

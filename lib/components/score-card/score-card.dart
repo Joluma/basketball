@@ -16,24 +16,17 @@ class ScoreCard extends StatelessWidget {
           padding: EdgeInsets.all(16),
           child: Row(
             children: <Widget>[
+              Expanded(child: ScoreCardTeam(item['teams']['home'])),
               Expanded(
-                child: ScoreCardTeam(item['teams']['home'])
-              ),
+                  child: ScoreCardPoints(item['scores']['home']['total'] ?? 0,
+                      item['scores']['away']['total'] ?? 0)),
+              Expanded(child: ScoreCardDate(item['date'], item['status'])),
               Expanded(
-                child: ScoreCardPoints(item['scores']['home']['total'] ?? 0, item['scores']['away']['total'] ?? 0)
-              ),
-               Expanded(
-                 child: ScoreCardDate(item['date'], item['status'])
-               ),
-              Expanded(
-                child: ScoreCardPoints(item['scores']['away']['total'] ?? 0, item['scores']['home']['total'] ?? 0)
-              ),
-              Expanded(
-                child: ScoreCardTeam(item['teams']['away'])
-              ),
+                  child: ScoreCardPoints(item['scores']['away']['total'] ?? 0,
+                      item['scores']['home']['total'] ?? 0)),
+              Expanded(child: ScoreCardTeam(item['teams']['away'])),
             ],
-          )
-      ),
+          )),
     );
   }
 }

@@ -29,7 +29,8 @@ Future<List> fetchJSONData(String date) async {
     "date": date
   };
 
-  String query = params.entries.map((e) => QueryParam(e.key, e.value)).toList().join('&');
+  String query =
+      params.entries.map((e) => QueryParam(e.key, e.value)).toList().join('&');
 
   var response = await http.get('$url?$query', headers: headers);
 

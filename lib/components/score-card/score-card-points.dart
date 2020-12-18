@@ -13,7 +13,8 @@ class ScoreCardPoints extends StatelessWidget {
       textAlign: TextAlign.center,
       style: TextStyle(
         fontSize: 32,
-        fontWeight: teamTotal > opponentTotal ? FontWeight.bold : FontWeight.normal,
+        fontWeight:
+            teamTotal > opponentTotal ? FontWeight.bold : FontWeight.normal,
       ),
     );
   }
