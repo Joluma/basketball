@@ -43,27 +43,24 @@ class NbaScoresHomeBodyState extends State<NbaScoresHomeBody> {
     return Column(
       children: <Widget>[
         Container(
-          child: CalendarStrip(
-            addSwipeGesture: true,
-            startDate: startDate,
-            endDate: endDate,
-            selectedDate: DateTime.now(),
-            onDateSelected: onSelect,
-            containerDecoration: BoxDecoration(
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow (
-                  color: Colors.grey,
-                  offset: Offset(0, 1),
-                  blurRadius: 10,
-                ),
-              ], 
-            ),
-          )
-        ),
-        Expanded(
-          child: NbaScoresTab(key: UniqueKey(), date: _selectedDate)
-        ),
+            child: CalendarStrip(
+          addSwipeGesture: true,
+          startDate: startDate,
+          endDate: endDate,
+          selectedDate: DateTime.now(),
+          onDateSelected: onSelect,
+          containerDecoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey,
+                offset: Offset(0, 1),
+                blurRadius: 10,
+              ),
+            ],
+          ),
+        )),
+        Expanded(child: NbaScoresTab(key: UniqueKey(), date: _selectedDate)),
       ],
     );
   }
