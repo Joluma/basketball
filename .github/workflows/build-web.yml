@@ -29,3 +29,19 @@ jobs:
       - run: flutter pub get
       - run: flutter config --enable-web
       - run: flutter build web
+
+      # - name: Deploy to github pages
+      #   uses: peaceiris/actions-gh-pages@v2.5.0
+      #   env:
+      #     ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+      #     PUBLISH_BRANCH: build/add-web-release-workflow
+      #     PUBLISH_DIR: ./build/web
+
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: build/web
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
