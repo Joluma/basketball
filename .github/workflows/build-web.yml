@@ -1,0 +1,38 @@
+name: Deploy-Web
+
+on:
+  push:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'beta'
+
+      - name: Create env file
+        run: |
+          cat << 'EOF' >> prod.env
+          BASKET_API_URL=${{ secrets.BASKET_API_URL }}
+          BASKET_API_KEY=${{ secrets.BASKET_API_KEY }}
+          EOF
+
+      - run: flutter pub get
+      - run: flutter config --enable-web
+      - run: flutter build web
+
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: build/web
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
