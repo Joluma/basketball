@@ -19,6 +19,13 @@ jobs:
         with:
           channel: 'beta'
 
+      - name: Create env file
+        run: |
+          cat << 'EOF' >> .env
+          BASKET_API_URL=${{ secrets.BASKET_API_URL }}
+          BASKET_API_KEY=${{ secrets.BASKET_API_KEY }}
+          EOF
+
       - run: flutter pub get
       - run: flutter config --enable-web
       - run: flutter build web
