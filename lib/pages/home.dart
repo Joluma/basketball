@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar_strip/calendar_strip.dart';
 
-import 'package:nbaScores/components/scores-tab.dart';
+import 'package:jojo_basketball/components/scores-tab.dart';
 
 class NbaScoresHome extends StatelessWidget {
   @override

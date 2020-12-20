@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nbaScores/components/score-card/score-card-date.dart';
-import 'package:nbaScores/components/score-card/score-card-points.dart';
-import 'package:nbaScores/components/score-card/score-card-team.dart';
+import 'package:jojo_basketball/components/score-card/score-card-date.dart';
+import 'package:jojo_basketball/components/score-card/score-card-points.dart';
+import 'package:jojo_basketball/components/score-card/score-card-team.dart';
 
 class ScoreCard extends StatelessWidget {
   ScoreCard(this.item);

@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nbaScores/components/score-card/score-card.dart';
+import 'package:jojo_basketball/components/score-card/score-card.dart';
 import 'dart:async';
 
-import 'package:nbaScores/services/data-fetcher.dart';
+import 'package:jojo_basketball/services/data-fetcher.dart';
 
 class NbaScoresTab extends StatefulWidget {
   NbaScoresTab({
