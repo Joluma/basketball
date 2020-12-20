@@ -3,7 +3,7 @@ import 'package:jojo_basketball/pages/home.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
-  await DotEnv().load('.env');
+  await DotEnv().load('prod.env');
   runApp(MyApp());
 }
 

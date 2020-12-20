@@ -2,9 +2,7 @@ name: Deploy-Web
 
 on:
   push:
-    branches: [ master, build/add-web-release-workflow ]
-  # pull_request:
-  #   branches: [ master ]
+    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -21,7 +19,7 @@ jobs:
 
       - name: Create env file
         run: |
-          cat << 'EOF' >> .env
+          cat << 'EOF' >> prod.env
           BASKET_API_URL=${{ secrets.BASKET_API_URL }}
           BASKET_API_KEY=${{ secrets.BASKET_API_KEY }}
           EOF
@@ -29,13 +27,6 @@ jobs:
       - run: flutter pub get
       - run: flutter config --enable-web
       - run: flutter build web
-
-      # - name: Deploy to github pages
-      #   uses: peaceiris/actions-gh-pages@v2.5.0
-      #   env:
-      #     ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-      #     PUBLISH_BRANCH: build/add-web-release-workflow
-      #     PUBLISH_DIR: ./build/web
 
       - name: Deploy to GitHub Pages
         if: success()
