@@ -9,7 +9,7 @@ class NbaScoresHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("NBA Scores"),
+        title: Text("Jojo Basketball Scores"),
       ),
       body: NbaScoresHomeBody(),
     );
@@ -25,11 +25,17 @@ class NbaScoresHomeBodyState extends State<NbaScoresHomeBody> {
   DateTime startDate = DateTime.now().subtract(Duration(days: 30));
   DateTime endDate = DateTime.now().add(Duration(days: 30));
 
-  String _selectedDate = DateTime.now().toString().split(' ')[0];
+  DateTime _selectedDate = DateTime.now();
 
   onSelect(date) {
     setState(() {
-      _selectedDate = date.toString().split(' ')[0];
+      _selectedDate = date;
+    });
+  }
+
+  onWeekSelect(firstDayOfWeek) {
+    setState(() {
+      _selectedDate = firstDayOfWeek;
     });
   }
 
@@ -47,8 +53,9 @@ class NbaScoresHomeBodyState extends State<NbaScoresHomeBody> {
           addSwipeGesture: true,
           startDate: startDate,
           endDate: endDate,
-          selectedDate: DateTime.now(),
+          selectedDate: _selectedDate,
           onDateSelected: onSelect,
+          onWeekSelected: onWeekSelect,
           containerDecoration: BoxDecoration(
             color: Colors.white,
             boxShadow: [
@@ -60,7 +67,7 @@ class NbaScoresHomeBodyState extends State<NbaScoresHomeBody> {
             ],
           ),
         )),
-        Expanded(child: NbaScoresTab(key: UniqueKey(), date: _selectedDate)),
+        Expanded(child: NbaScoresTab(key: UniqueKey(), date: _selectedDate.toString().split(' ')[0])),
       ],
     );
   }
