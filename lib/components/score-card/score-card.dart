@@ -12,10 +12,10 @@ class ScoreCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
-          padding: EdgeInsets.all(16),
+          padding: EdgeInsets.all(32),
           child: Row(
             children: <Widget>[
-              Expanded(child: ScoreCardTeam(item['teams']['home'])),
+              Expanded(child: ScoreCardTeam(item['teams']['away'])),
               Expanded(
                   child: ScoreCardPoints(item['scores']['home']['total'] ?? 0,
                       item['scores']['away']['total'] ?? 0)),
@@ -23,7 +23,7 @@ class ScoreCard extends StatelessWidget {
               Expanded(
                   child: ScoreCardPoints(item['scores']['away']['total'] ?? 0,
                       item['scores']['home']['total'] ?? 0)),
-              Expanded(child: ScoreCardTeam(item['teams']['away'])),
+              Expanded(child: ScoreCardTeam(item['teams']['home'])),
             ],
           )),
     );

@@ -14,7 +14,7 @@ class ScoreCardPoints extends StatelessWidget {
       style: TextStyle(
         fontSize: 32,
         fontWeight:
-            teamTotal > opponentTotal ? FontWeight.bold : FontWeight.normal,
+            teamTotal > opponentTotal ? FontWeight.w500 : FontWeight.w300,
       ),
     );
   }

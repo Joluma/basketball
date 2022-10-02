@@ -44,7 +44,6 @@ class NbaScoresTabState extends State<NbaScoresTab> {
                   )
                 : ListView.builder(
                     itemCount: snapshot.data.length,
-                    padding: EdgeInsets.all(16.0),
                     itemBuilder: (BuildContext context, int index) {
                       return ScoreCard(snapshot.data[index]);
                     },

@@ -15,7 +15,6 @@ class ScoreCardTeam extends StatelessWidget {
           width: 64,
         ),
       ),
-      Text(team['name'], textAlign: TextAlign.center),
     ]);
   }
 }
