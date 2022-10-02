@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+import 'dart:async' show Future;
 import 'package:http/http.dart' as http;
 
 class QueryParam {
@@ -24,7 +26,7 @@ Future<List> fetchJSONData(String date) async {
   };
 
   final Map<String, String> params = {
-    "season": "2020-2021",
+    "season": "2022-2023",
     "league": "12",
     "date": date
   };
@@ -41,7 +43,7 @@ Future<List> fetchJSONData(String date) async {
       throw Exception('Failed to load data');
     }
 
-    return json.decode(response.body)['response'];
+    return data['response'];
   } else {
     throw Exception('Failed to load data');
   }
