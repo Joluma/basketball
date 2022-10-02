@@ -1,8 +1,9 @@
 import 'dart:convert';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+// import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'dart:async' show Future;
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
+import 'package:flutter/services.dart' show rootBundle;
 
 class QueryParam {
   String key;
@@ -17,34 +18,40 @@ class QueryParam {
 }
 
 Future<List> fetchJSONData(String date) async {
-  final String url = 'https://${DotEnv().env['BASKET_API_URL']}/games';
+  var response = await rootBundle.loadString('fixtures/mock-response.json');
+  var jsonResponse = json.decode(response);
+  var data = jsonResponse['response'];
 
-  final Map<String, String> headers = {
-    "x-rapidapi-host": DotEnv().env['BASKET_API_URL'],
-    "x-rapidapi-key": DotEnv().env['BASKET_API_KEY'],
-    "useQueryString": "true",
-  };
+  return data;
 
-  final Map<String, String> params = {
-    "season": "2022-2023",
-    "league": "12",
-    "date": date
-  };
+  // final String url = 'https://${DotEnv().env['BASKET_API_URL']}/games';
 
-  String query =
-      params.entries.map((e) => QueryParam(e.key, e.value)).toList().join('&');
+  // final Map<String, String> headers = {
+  //   "x-rapidapi-host": DotEnv().env['BASKET_API_URL'],
+  //   "x-rapidapi-key": DotEnv().env['BASKET_API_KEY'],
+  //   "useQueryString": "true",
+  // };
 
-  var response = await http.get('$url?$query', headers: headers);
+  // final Map<String, String> params = {
+  //   "season": "2022-2023",
+  //   "league": "12",
+  //   "date": date
+  // };
 
-  if (response.statusCode == 200) {
-    var data = json.decode(response.body);
+  // String query =
+  //     params.entries.map((e) => QueryParam(e.key, e.value)).toList().join('&');
 
-    if (data['errors'].length > 0) {
-      throw Exception('Failed to load data');
-    }
+  // var response = await http.get('$url?$query', headers: headers);
 
-    return data['response'];
-  } else {
-    throw Exception('Failed to load data');
-  }
+  // if (response.statusCode == 200) {
+  //   var data = json.decode(response.body);
+
+  //   if (data['errors'].length > 0) {
+  //     throw Exception('Failed to load data');
+  //   }
+
+  //   return data['response'];
+  // } else {
+  //   throw Exception('Failed to load data');
+  // }
 }
