@@ -19,8 +19,9 @@ class ScoreCard extends StatelessWidget {
               if (item['status']['short'] == 'FT') ...[
                 Expanded(
                   child: ScoreCardPoints(
-                    item['scores']['home']['total'] ?? 0,
-                    item['scores']['away']['total'] ?? 0,
+                    item['scores']['home']['total'],
+                    item['scores']['home']['total'] >
+                        item['scores']['away']['total'],
                   ),
                 ),
               ],
@@ -31,8 +32,9 @@ class ScoreCard extends StatelessWidget {
               if (item['status']['short'] == 'FT') ...[
                 Expanded(
                   child: ScoreCardPoints(
-                    item['scores']['away']['total'] ?? 0,
-                    item['scores']['home']['total'] ?? 0,
+                    item['scores']['away']['total'],
+                    item['scores']['away']['total'] >
+                        item['scores']['home']['total'],
                   ),
                 ),
               ],

@@ -1,20 +1,19 @@
 import 'package:flutter/cupertino.dart';
 
 class ScoreCardPoints extends StatelessWidget {
-  ScoreCardPoints(this.teamTotal, this.opponentTotal);
+  ScoreCardPoints(this.points, this.isWinner);
 
-  final int teamTotal;
-  final int opponentTotal;
+  final int points;
+  final bool isWinner;
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      teamTotal > 0 ? teamTotal.toString() : '--',
+      points.toString(),
       textAlign: TextAlign.center,
       style: TextStyle(
         fontSize: 32,
-        fontWeight:
-            teamTotal > opponentTotal ? FontWeight.w500 : FontWeight.w300,
+        fontWeight: isWinner ? FontWeight.w500 : FontWeight.w300,
       ),
     );
   }
