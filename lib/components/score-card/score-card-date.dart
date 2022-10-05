@@ -10,14 +10,17 @@ class ScoreCardDate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String gameTime = DateFormat.jm().format(DateTime.parse(date));
-    final gameStatus = status['short'] == 'FT' ? 'Ended' : gameTime.toString();
+    final gameStatus =
+        status['short'] == 'NS' ? gameTime.toString() : status['short'];
 
     return Text(
       gameStatus,
       textAlign: TextAlign.center,
       style: TextStyle(
-        fontSize: 18,
-        color: Colors.black54,
+        fontSize: status['short'] == 'NS' ? 24 : 18,
+        color: status['short'] == 'NS' ? Colors.black54 : Colors.black,
+        fontWeight:
+            status['short'] == 'NS' ? FontWeight.bold : FontWeight.normal,
       ),
     );
   }

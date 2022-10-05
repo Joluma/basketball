@@ -16,13 +16,26 @@ class ScoreCard extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Expanded(child: ScoreCardTeam(item['teams']['away'])),
+              if (item['status']['short'] == 'FT') ...[
+                Expanded(
+                  child: ScoreCardPoints(
+                    item['scores']['home']['total'] ?? 0,
+                    item['scores']['away']['total'] ?? 0,
+                  ),
+                ),
+              ],
               Expanded(
-                  child: ScoreCardPoints(item['scores']['home']['total'] ?? 0,
-                      item['scores']['away']['total'] ?? 0)),
-              Expanded(child: ScoreCardDate(item['date'], item['status'])),
-              Expanded(
-                  child: ScoreCardPoints(item['scores']['away']['total'] ?? 0,
-                      item['scores']['home']['total'] ?? 0)),
+                child: ScoreCardDate(item['date'], item['status']),
+                flex: item['status']['short'] == 'FT' ? 1 : 3,
+              ),
+              if (item['status']['short'] == 'FT') ...[
+                Expanded(
+                  child: ScoreCardPoints(
+                    item['scores']['away']['total'] ?? 0,
+                    item['scores']['home']['total'] ?? 0,
+                  ),
+                ),
+              ],
               Expanded(child: ScoreCardTeam(item['teams']['home'])),
             ],
           )),
