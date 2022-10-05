@@ -10,9 +10,12 @@ class ScoreCardTeam extends StatelessWidget {
     return Column(children: <Widget>[
       Container(
         padding: EdgeInsets.only(bottom: 8),
-        child: Image.network(
-          team['logo'],
-          width: 64,
+        child: Hero(
+          tag: 'hero-$team["id"]-logo',
+          child: Image.network(
+            team['logo'],
+            width: 64,
+          ),
         ),
       ),
     ]);
