@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jojo_basketball/components/score-card/score-card.dart';
+import 'package:jojo_basketball/components/score-list-item.dart';
 import 'dart:async';
 
 import 'package:jojo_basketball/services/data-fetcher.dart';
@@ -45,7 +45,7 @@ class NbaScoresTabState extends State<NbaScoresTab> {
                 : ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return ScoreCard(snapshot.data[index]);
+                      return ScoreListItem(snapshot.data[index]);
                     },
                   );
           } else if (snapshot.hasError) {
