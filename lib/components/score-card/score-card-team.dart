@@ -18,6 +18,10 @@ class ScoreCardTeam extends StatelessWidget {
           ),
         ),
       ),
+      Text(
+        team['name'],
+        textAlign: TextAlign.center,
+      ),
     ]);
   }
 }
