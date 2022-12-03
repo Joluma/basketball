@@ -11,9 +11,9 @@ class ScoreCardTeam extends StatelessWidget {
       Container(
         padding: EdgeInsets.only(bottom: 8),
         child: Hero(
-          tag: 'hero-$team["id"]-logo',
-          child: Image.network(
-            team['logo'],
+          tag: 'hero-${team['id']}-logo',
+          child: Image.asset(
+            'team-logos/${team['id']}.png',
             width: 64,
           ),
         ),
