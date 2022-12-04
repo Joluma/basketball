@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class ScoreCardPoints extends StatelessWidget {
   ScoreCardPoints(this.points, this.isWinner);
@@ -13,7 +13,8 @@ class ScoreCardPoints extends StatelessWidget {
       textAlign: TextAlign.center,
       style: TextStyle(
         fontSize: 32,
-        fontWeight: isWinner ? FontWeight.w500 : FontWeight.w300,
+        fontWeight: isWinner ? FontWeight.w700 : FontWeight.w300,
+        color: isWinner ? Colors.black : Colors.black54,
       ),
     );
   }

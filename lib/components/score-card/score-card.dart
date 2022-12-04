@@ -12,10 +12,11 @@ class ScoreCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
-        padding: EdgeInsets.all(32),
+        padding: EdgeInsets.all(16),
         child: Row(
           children: <Widget>[
-            Expanded(child: ScoreCardTeam(item['teams']['away'])),
+            Expanded(
+                child: ScoreCardTeam(item['teams']['away'], false), flex: 2),
             if (item['status']['short'] == 'FT') ...[
               Expanded(
                 child: ScoreCardPoints(
@@ -23,6 +24,7 @@ class ScoreCard extends StatelessWidget {
                   item['scores']['away']['total'] >
                       item['scores']['home']['total'],
                 ),
+                flex: 1,
               ),
             ],
             Expanded(
@@ -36,9 +38,11 @@ class ScoreCard extends StatelessWidget {
                   item['scores']['home']['total'] >
                       item['scores']['away']['total'],
                 ),
+                flex: 1,
               ),
             ],
-            Expanded(child: ScoreCardTeam(item['teams']['home'])),
+            Expanded(
+                child: ScoreCardTeam(item['teams']['home'], true), flex: 2),
           ],
         ),
       ),
