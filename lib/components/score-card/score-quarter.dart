@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-class ScoreCardQuarter extends StatelessWidget {
-  ScoreCardQuarter(this.quarterNumber, this.scoreAway, this.scoreHome);
+class ScoreQuarter extends StatelessWidget {
+  ScoreQuarter(this.quarterNumber, this.scoreAway, this.scoreHome);
 
   final String quarterNumber;
   final int scoreAway;
@@ -18,7 +18,7 @@ class ScoreCardQuarter extends StatelessWidget {
               scoreAway.toString(),
               textAlign: TextAlign.right,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 24,
               ),
             ),
           ),
@@ -33,13 +33,12 @@ class ScoreCardQuarter extends StatelessWidget {
               ),
             ),
           ),
-          // flex: 1,
           Expanded(
             child: Text(
               scoreHome.toString(),
               textAlign: TextAlign.left,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 24,
               ),
             ),
           ),
