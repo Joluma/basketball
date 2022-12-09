@@ -29,7 +29,7 @@ class Game extends StatelessWidget {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage(
-                                  'team-logos/${item['teams']['away']['id']}.png'),
+                                  'images/team-logos/${item['teams']['away']['id']}.png'),
                               fit: BoxFit.fitHeight,
                               opacity: 0.1,
                               alignment: Alignment(2, 0),
@@ -43,7 +43,7 @@ class Game extends StatelessWidget {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage(
-                                  'team-logos/${item['teams']['home']['id']}.png'),
+                                  'images/team-logos/${item['teams']['home']['id']}.png'),
                               fit: BoxFit.fitHeight,
                               opacity: 0.1,
                               alignment: Alignment(-2, 0),

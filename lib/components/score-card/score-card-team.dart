@@ -17,7 +17,7 @@ class ScoreCardTeam extends StatelessWidget {
             child: Hero(
               tag: 'hero-${team['id']}-logo',
               child: Image.asset(
-                'team-logos/${team['id']}.png',
+                'images/team-logos/${team['id']}.png',
                 width: 64,
                 height: 64,
                 fit: BoxFit.contain,
