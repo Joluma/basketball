@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jojo_basketball/utils/asset-path.dart';
 
 class ScoreCardTeam extends StatelessWidget {
   ScoreCardTeam(this.team, this.isAtHome);
@@ -17,7 +18,7 @@ class ScoreCardTeam extends StatelessWidget {
             child: Hero(
               tag: 'hero-${team['id']}-logo',
               child: Image.asset(
-                'images/team-logos/${team['id']}.png',
+                assetPath('images/team-logos/${team['id']}.png'),
                 width: 64,
                 height: 64,
                 fit: BoxFit.contain,

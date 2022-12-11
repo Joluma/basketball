@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jojo_basketball/components/score-card/score-card.dart';
 import 'package:jojo_basketball/components/score-card/score-quarter.dart';
+import 'package:jojo_basketball/utils/asset-path.dart';
 
 class Game extends StatelessWidget {
   Game(this.item);
@@ -29,7 +30,9 @@ class Game extends StatelessWidget {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage(
-                                  'images/team-logos/${item['teams']['away']['id']}.png'),
+                                assetPath(
+                                    'images/team-logos/${item['teams']['away']['id']}.png'),
+                              ),
                               fit: BoxFit.fitHeight,
                               opacity: 0.1,
                               alignment: Alignment(2, 0),
@@ -43,7 +46,9 @@ class Game extends StatelessWidget {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage(
-                                  'images/team-logos/${item['teams']['home']['id']}.png'),
+                                assetPath(
+                                    'images/team-logos/${item['teams']['home']['id']}.png'),
+                              ),
                               fit: BoxFit.fitHeight,
                               opacity: 0.1,
                               alignment: Alignment(-2, 0),
